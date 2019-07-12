@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+div.card-header {
+ font-size: large;
+}
+
+div.card {
+  margin-top: 10px
+}
+td{
+  border: 1px solid black;
+}
+table, tr, thead{
+  width: 100%;
+  border: 1px solid black;
+}
+*{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

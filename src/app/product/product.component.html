@@ -1,0 +1,43 @@
+<h1>Products</h1>
+<button (click)='toggleImage()'>Show Images</button>
+<!-- <button (click)='showAvailability()'>Show Availability  </button> -->
+<input [(ngModel)] = "searchString">
+
+<h3>{{searchString}}</h3>
+<h2>{{productCategory}}</h2>
+<ng-container *ngIf = "products && products.length; else noProducts">
+<table>
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Product Code</th>
+            <th>Product ID</th>
+            <th>Manufacture Date</th>
+            <th>Price</th>
+            <th>Rating</th>
+        </tr>
+
+    </thead>
+    <tbody>
+    <tr *ngFor ="let product of searchProduct()" >
+        <td><img *ngIf='isVisible' [src] = 'product.imageUrl'
+            style = "width:50px; margin: 2px; border: solid pink;">
+        </td>
+        <td>{{product.productName}}</td>
+        <td>{{product.productCode}}</td>
+        <td>{{product.productId}}</td>
+        <td>{{product.releaseDate}}</td>
+        <td>{{product.price | currency:'JPY' : 'symbol': '1.2-2'}}</td>
+        <td>{{product.starRating}}</td>
+        
+    </tr>
+</tbody>
+</table>
+</ng-container>
+<ng-template #noProducts>
+    No Products Available!
+</ng-template>
+
+
+
